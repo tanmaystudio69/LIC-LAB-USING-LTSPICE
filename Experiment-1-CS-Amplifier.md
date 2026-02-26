@@ -88,8 +88,8 @@ Given parameters:
 
 # **CIRCUIT DIAGRAM**
 
-![Image description](<img width="959" height="478" alt="Screenshot 2026-02-26 131005" src="https://github.com/user-attachments/assets/06e08bc2-496e-45f6-bfa4-f22ac4f85be6" />
-)
+<img width="959" height="478" alt="Screenshot 2026-02-26 131005" src="https://github.com/user-attachments/assets/74c19fc7-be21-45e9-b092-71f6faa50707" />
+
 
 ---
 
@@ -209,6 +209,11 @@ Result:
 
 # **DC OPERATING POINT ANALYSIS (.op)**
 
+<img width="364" height="258" alt="Screenshot 2026-02-26 131041" src="https://github.com/user-attachments/assets/931228ea-00c1-4f08-b6f7-6f3b0b0357b7" />
+<img width="959" height="461" alt="Screenshot 2026-02-26 131128" src="https://github.com/user-attachments/assets/a640b179-2c83-4b8c-abf2-8b230fbc652c" />
+
+
+
 From LTspice simulation:
 
 - Supply voltage = 2V  
@@ -253,11 +258,13 @@ The transistor is operating in saturation region since:
 
 Thus, proper amplifier biasing is achieved.
 
-![DC Operating Point](dc_operating_point.png)
+
 
 ---
 
 # **DC SWEEP ANALYSIS (.dc)**
+<img width="959" height="470" alt="Screenshot 2026-02-26 131249" src="https://github.com/user-attachments/assets/3461f64c-9d50-43d6-9d04-a568a5dd3c78" />
+
 
 The DC sweep analysis shows variation of output voltage with input voltage.
 
@@ -272,11 +279,13 @@ This confirms proper amplifier behavior.
 
 The middle region represents the active region where amplification occurs.
 
-![DC Sweep](dc_sweep.png)
+
 
 ---
 
 # **TRANSIENT ANALYSIS (.tran)**
+<img width="959" height="474" alt="Screenshot 2026-02-26 131811" src="https://github.com/user-attachments/assets/ef6b8033-69f8-411d-8c50-649522f1eec7" />
+
 
 Input signal applied:
 
@@ -340,11 +349,15 @@ Observations:
 
 This confirms correct amplifier operation.
 
-![Transient Analysis](transient.png)
+
 
 ---
 
 # **AC ANALYSIS (.ac)**
+<img width="959" height="484" alt="Screenshot 2026-02-26 132203" src="https://github.com/user-attachments/assets/edd9fe19-feef-4f3b-b33b-cb0e308412b4" />
+<img width="959" height="471" alt="Screenshot 2026-02-26 132133" src="https://github.com/user-attachments/assets/13efee18-4e98-454b-b642-a5d646d9b030" />
+
+
 
 From AC analysis plot:
 
@@ -378,7 +391,7 @@ Observations:
 - Gain decreases at higher frequencies  
 - Load capacitor introduces dominant pole  
 
-![AC Analysis](ac_analysis.png)
+
 
 ---
 
