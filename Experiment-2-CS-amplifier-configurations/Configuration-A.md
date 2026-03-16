@@ -410,7 +410,7 @@ $$
 
 # 6. DC Analysis
 
-![DC Analysis](Results/exp2a_dc.png)
+
 
 The DC operating point confirms that the MOSFETs operate in **saturation region**, which is required for linear amplification.
 
@@ -418,7 +418,7 @@ The DC operating point confirms that the MOSFETs operate in **saturation region*
 
 # 7. Transient Analysis
 
-![Transient](Results/exp2a_transient.png)
+
 
 Input signal:
 
@@ -486,7 +486,7 @@ The output waveform is inverted relative to the input confirming **CS amplifier 
 
 # 8. AC Analysis
 
-![AC Analysis](Results/exp2a_ac.png)
+
 
 The AC analysis provides the **frequency response** of the amplifier.
 
