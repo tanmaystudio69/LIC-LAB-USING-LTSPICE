@@ -107,6 +107,7 @@ However, the gain reduces slightly due to the factor $(1 + g_m R_S)$.
 ---
 
 # Circuit Diagram
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/8fa757e555762a61000c84fd8b2f48193c6ffa17/Experiment-2-CS-amplifier-configurations/results-from-LTspice/Screenshot%202026-03-15%20235116.png" alt="Alt text" width="800" height="800">
 
 
 
@@ -409,6 +410,10 @@ $$
 ---
 
 # 6. DC Analysis
+![image alt](https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/5951024eecd451d264ec85c70884a0a21e3d542a/Experiment-2-CS-amplifier-configurations/results-from-LTspice/Screenshot%202026-03-16%20114532.png)
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/5951024eecd451d264ec85c70884a0a21e3d542a/Experiment-2-CS-amplifier-configurations/results-from-LTspice/Screenshot%202026-03-15%20235256.png" alt="Alt text" width="800" height="700">
+
+
 
 
 
@@ -417,6 +422,9 @@ The DC operating point confirms that the MOSFETs operate in **saturation region*
 ---
 
 # 7. Transient Analysis
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/5951024eecd451d264ec85c70884a0a21e3d542a/Experiment-2-CS-amplifier-configurations/results-from-LTspice/Screenshot%202026-03-15%20235943.png" alt="Alt text" width="800" height="700">
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/5951024eecd451d264ec85c70884a0a21e3d542a/Experiment-2-CS-amplifier-configurations/results-from-LTspice/Screenshot%202026-03-15%20235952.png" alt="Alt text" width="900" height="800">
+
 
 
 
@@ -485,6 +493,11 @@ The output waveform is inverted relative to the input confirming **CS amplifier 
 ---
 
 # 8. AC Analysis
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/5951024eecd451d264ec85c70884a0a21e3d542a/Experiment-2-CS-amplifier-configurations/results-from-LTspice/Screenshot%202026-03-16%20000324.png" alt="Alt text" width="900" height="700">
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/5951024eecd451d264ec85c70884a0a21e3d542a/Experiment-2-CS-amplifier-configurations/results-from-LTspice/Screenshot%202026-03-16%20000316.png" alt="Alt text" width="900" height="700">
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/5951024eecd451d264ec85c70884a0a21e3d542a/Experiment-2-CS-amplifier-configurations/results-from-LTspice/Screenshot%202026-03-16%20000444.png" alt="Alt text" width="700" height="600">
+
+
 
 
 
