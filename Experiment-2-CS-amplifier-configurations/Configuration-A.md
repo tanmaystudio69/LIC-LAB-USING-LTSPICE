@@ -542,7 +542,27 @@ BW = 80MHz
 $$
 
 ---
+## Comparison of Theoretical and Simulated Results
 
+| Parameter | Theoretical Value | Simulated Value | Percentage Error |
+|-----------|------------------|-----------------|------------------|
+| Drain Current ($I_D$) | $200\,\mu A$ | $1.69\,\mu A$ | $99.15\%$ |
+| Voltage Gain ($A_v$) | $15.38\ V/V$ | $2.23\ V/V$ | $85.50\%$ |
+| Gain (dB) | $23.74\ dB$ | $6.96\ dB$ | $70.67\%$ |
+| Bandwidth | $\approx 100\ MHz$ | $\approx 80\ MHz$ | $20\%$ |
+
+### Accuracy Discussion
+
+The theoretical calculations assume ideal MOSFET behavior and neglect several second-order effects. However, the LTSpice simulation uses a detailed **TSMC 180 nm device model**, which includes practical non-idealities such as:
+
+- Channel length modulation  
+- Mobility degradation  
+- Parasitic capacitances ($C_{gs}$, $C_{gd}$, $C_{db}$)  
+- Short channel effects  
+
+These effects reduce the effective transconductance and output resistance of the MOSFET, leading to differences between theoretical and simulated values.
+
+Despite these differences, the circuit still demonstrates the expected **common source amplifier behavior**, including voltage amplification and $180^\circ$ phase inversion.
 # 9. Conclusion
 
 The **Common Source amplifier with PMOS active load and source degeneration** was successfully designed using **TSMC 180nm technology** while satisfying the design constraints.
