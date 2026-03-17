@@ -102,11 +102,10 @@ Additionally, the output signal is **inverted** relative to the input signal, wh
 
 ## Circuit Diagram
 
-![Circuit Diagram](Results/exp2b_topology.png)
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/8e3341bf888e9614c278aa84d00c253a2fce4c95/Experiment-2-CS-amplifier-configurations/results-from-LTspice/config%202%20dia%20(2).png" alt="Alt text" width="900" height="700">
 
-## LTSpice Implementation
 
-![LTSpice Circuit](Results/exp2b_circuit.png)
+
 
 ---
 
@@ -759,13 +758,17 @@ the transistor operates in saturation.
 
 # 12. DC Analysis
 
-![DC Analysis](Results/exp2b_dc.png)
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/8e3341bf888e9614c278aa84d00c253a2fce4c95/Experiment-2-CS-amplifier-configurations/results-from-LTspice/dc%20op%20point%20config%202.png" alt="Alt text" width="600" height="600">
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/8e3341bf888e9614c278aa84d00c253a2fce4c95/Experiment-2-CS-amplifier-configurations/results-from-LTspice/config%202%20dc%20op%20pt%20(2).png" alt="Alt text" width="900" height="800">
+
+
 
 ---
 
 # 13. Transient Analysis
 
-![Transient Analysis](Results/exp2b_transient.png)
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/8e3341bf888e9614c278aa84d00c253a2fce4c95/Experiment-2-CS-amplifier-configurations/results-from-LTspice/transient%20config%202.png" alt="Alt text" width="800" height="700">
+
 
 Input signal
 
@@ -829,7 +832,10 @@ $$
 
 # 15. AC Analysis
 
-![AC Analysis](Results/exp2b_ac.png)
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/8e3341bf888e9614c278aa84d00c253a2fce4c95/Experiment-2-CS-amplifier-configurations/results-from-LTspice/ac%20config%202.png" alt="Alt text" width="700" height="700">
+<img src="https://github.com/tanmaystudio69/LIC-LAB-USING-LTSPICE/blob/8e3341bf888e9614c278aa84d00c253a2fce4c95/Experiment-2-CS-amplifier-configurations/results-from-LTspice/ac%20graph%20config%202.png" alt="Alt text" width="700" height="700">
+
+
 
 ---
 
