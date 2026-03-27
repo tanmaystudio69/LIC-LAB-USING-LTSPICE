@@ -68,6 +68,8 @@ This structure improves bias stability while maintaining moderate gain.
 | M3 | Diode-connected degeneration transistor |
 
 ---
+# Circuit schematic
+<img width="1401" height="955" alt="Screenshot 2026-03-18 214209" src="https://github.com/user-attachments/assets/2e343e14-a25d-41f6-81fb-326cac7b0548" />
 
 # 3. Working Principle of the Circuit
 
@@ -160,6 +162,10 @@ A_v=\frac{-g_{m2}(r_{o1}\parallel r_{o2})}{1+\frac{g_{m2}}{g_{m3}}}
 $$
 
 ---
+# DC analysis
+<img width="952" height="782" alt="Screenshot 2026-03-18 222117" src="https://github.com/user-attachments/assets/f6e7c114-a141-446a-83f5-d6928592cd21" />
+<img width="1919" height="917" alt="Screenshot 2026-03-18 222429" src="https://github.com/user-attachments/assets/0c6df7a5-3746-43d5-9cca-851f03063401" />
+
 
 # 6. Design Specifications
 
@@ -492,6 +498,9 @@ $$
 ---
 
 # 17. Simulated Gain (Transient Analysis)
+<img width="952" height="500" alt="Screenshot 2026-03-18 222739" src="https://github.com/user-attachments/assets/0a8fa893-ee72-4ca4-999a-097a45fc0540" />
+<img width="1919" height="913" alt="Screenshot 2026-03-18 222726" src="https://github.com/user-attachments/assets/7a5ccc2d-4974-424b-a8bb-d967acdbe749" />
+
 
 Measured values:
 
@@ -522,6 +531,9 @@ $$
 ---
 
 # 18. AC Analysis
+<img width="1913" height="922" alt="Screenshot 2026-03-18 223031" src="https://github.com/user-attachments/assets/8e0b6f57-b708-49b5-a249-5dbb809e2aba" />
+<img width="1411" height="916" alt="Screenshot 2026-03-19 213427" src="https://github.com/user-attachments/assets/fb8c66b5-df93-4895-838d-960661ffa705" />
+
 
 Midband gain:
 
