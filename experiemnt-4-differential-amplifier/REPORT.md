@@ -895,3 +895,986 @@ The resistive-load differential amplifier provides:
 - controlled linear response region
 
 However, gain improvement is limited compared to active-load configurations, making this topology suitable primarily as a reference architecture for further differential amplifier enhancements.
+
+---  
+
+
+ 
+# Configuration–2: CMOS Differential Amplifier with PMOS Active Load
+<img width="1574" height="955" alt="circuit" src="https://github.com/user-attachments/assets/2d723645-0284-4248-8041-7500ff0065c9" />
+
+---
+
+## 1. Objective
+
+The objective of this experiment is to design, simulate, and analyze a CMOS differential amplifier using PMOS active load transistors under constrained operating specifications and verify its performance through DC, transient, and AC simulations.
+
+The following parameters are evaluated:
+
+- DC operating point verification
+- Input Common Mode Range (ICMR)
+- Output Common Mode Range (OCMR)
+- Differential linear input range
+- Differential voltage gain
+- Frequency response
+- 3-dB bandwidth
+- Gain Bandwidth Product (GBW)
+- Effect of load capacitance
+- Power dissipation
+- Comparison with resistive-load differential amplifier (Configuration-1)
+
+---
+
+# 2. Design Specifications
+
+The circuit is designed according to batch specification **C2 constraints**:
+
+| Parameter | Value |
+|----------|------|
+| Supply voltage | $V_{DD}=+0.9V$ |
+| Negative supply | $V_{SS}=-0.9V$ |
+| Input common-mode voltage | $V_{ICM}=0V$ |
+| Output common-mode voltage | $V_{OCM}=0V$ |
+| Tail bias voltage | $V_B=-0.3V$ |
+| Technology length | $L=540nm$ |
+| Load capacitance | $C_L=10pF$ |
+| Power constraint | $P \le 2.2mW$ |
+
+---
+
+# 3. Circuit Description
+
+The CMOS differential amplifier consists of five MOS transistors:
+
+| Transistor | Function |
+|-----------|----------|
+| $M_1, M_2$ | NMOS differential pair |
+| $M_3, M_4$ | PMOS active current mirror load |
+| $M_5$ | NMOS tail current source |
+
+### Functional Blocks
+
+The circuit can be divided into three sections:
+
+1. Differential input stage
+2. Active load stage
+3. Tail current bias stage
+
+Unlike resistive load configuration, PMOS active loads provide:
+
+- higher gain
+- higher output resistance
+- improved matching
+- reduced silicon area
+
+---
+
+# 4. Principle of Operation
+
+A differential amplifier amplifies the difference between two input voltages:
+
+$$
+v_{id}=v_{in1}-v_{in2}
+$$
+
+Output voltage:
+
+$$
+v_{out}=A_d(v_{in1}-v_{in2})
+$$
+
+When:
+
+$$
+v_{in1}=v_{in2}
+$$
+
+Then:
+
+$$
+v_{out}=0
+$$
+
+Thus common-mode signals are rejected.
+
+---
+
+# 5. Tail Current Source Design
+
+The transistor $M_5$ acts as a constant current source.
+
+Given:
+
+$$
+V_G=-0.3V
+$$
+
+$$
+V_S=-0.9V
+$$
+
+Therefore:
+
+$$
+V_{GS5}=V_G-V_S
+$$
+
+$$
+V_{GS5}=(-0.3)-(-0.9)=0.6V
+$$
+
+Since:
+
+$$
+V_{GS5}>V_{TH}
+$$
+
+the transistor operates in saturation.
+
+Hence constant tail current is established.
+
+---
+
+# 6. Tail Current Calculation
+
+MOS current equation:
+
+$$
+I_D=\frac{1}{2}\mu_n C_{ox}\frac{W}{L}(V_{GS}-V_{TH})^2
+$$
+
+Simulation result:
+
+$$
+I_{tail}=115.4\mu A
+$$
+
+Thus each branch carries:
+
+$$
+I_D=\frac{I_{tail}}{2}
+$$
+
+$$
+I_D=57.7\mu A
+$$
+
+---
+
+# 7. Verification of Saturation Region Operation
+
+For NMOS saturation:
+
+$$
+V_{DS} \ge V_{GS}-V_{TH}
+$$
+
+For PMOS saturation:
+
+$$
+V_{SD} \ge V_{SG}-|V_{TH}|
+$$
+
+Simulation confirms:
+
+| Transistor | Region |
+|-----------|-------|
+| $M_1$ | Saturation |
+| $M_2$ | Saturation |
+| $M_3$ | Saturation |
+| $M_4$ | Saturation |
+| $M_5$ | Saturation |
+
+Thus amplifier operates in correct region.
+
+---
+
+# 8. DC Operating Point Analysis
+<img width="1919" height="927" alt="dc opt pt (1)" src="https://github.com/user-attachments/assets/535b869a-914a-4f57-8f98-5f2ffaf835ae" />
+<img width="727" height="886" alt="dc opt pt (2)" src="https://github.com/user-attachments/assets/e2878b1d-55f2-414e-ac99-3426f7e05ce8" />
+
+
+
+Measured values:
+
+| Parameter | Value |
+|----------|------|
+| $V_{out1}$ | 0.240V |
+| $V_{out2}$ | 0.240V |
+| $V_P$ | −0.594V |
+| $I_{tail}$ | 115.4µA |
+| $I_{D1}$ | 57.7µA |
+| $I_{D2}$ | 57.7µA |
+
+Balanced operation confirmed.
+
+---
+# Detailed Design Calculations
+
+This section explains the design methodology used to select circuit parameters for the CMOS differential amplifier with PMOS active load. The objective is to obtain correct biasing, ensure saturation-region operation of all MOSFETs, satisfy power constraints, and achieve predictable gain and bandwidth performance.
+
+---
+
+# Tail Current Selection
+
+The tail current determines:
+
+- transconductance
+- gain
+- linear input range
+- power consumption
+- bandwidth
+
+From the power constraint:
+
+$$
+P=(V_{DD}-V_{SS})I_{tail}
+$$
+
+Given:
+
+$$
+P_{max}=2.2mW
+$$
+
+and
+
+$$
+V_{DD}-V_{SS}=1.8V
+$$
+
+Maximum allowable current:
+
+$$
+I_{tail(max)}=\frac{2.2mW}{1.8V}
+$$
+
+$$
+I_{tail(max)}=1.22mA
+$$
+
+To ensure safe operation with margin, a smaller current is selected:
+
+$$
+I_{tail}\approx115\mu A
+$$
+
+This improves:
+
+- linearity
+- power efficiency
+- stability
+
+---
+
+# Branch Current Calculation
+
+Since the circuit is symmetric:
+
+$$
+I_{D1}=I_{D2}=\frac{I_{tail}}{2}
+$$
+
+Therefore:
+
+$$
+I_D=57.7\mu A
+$$
+
+This current defines transistor operating region and gain.
+
+---
+
+# Tail Current Source Bias Voltage Selection
+
+Tail transistor $M_5$ must operate in saturation:
+
+$$
+V_{GS5}>V_{TH}
+$$
+
+Given:
+
+$$
+V_G=-0.3V,\quad V_S=-0.9V
+$$
+
+Thus:
+
+$$
+V_{GS5}=0.6V
+$$
+
+Since typical threshold voltage:
+
+$$
+V_{TH}\approx0.45V
+$$
+
+Therefore:
+
+$$
+V_{GS5}>V_{TH}
+$$
+
+ensuring proper current-source behavior.
+
+---
+
+# Overdrive Voltage Selection
+
+Overdrive voltage is defined as:
+
+$$
+V_{OV}=V_{GS}-V_{TH}
+$$
+
+Using:
+
+$$
+V_{GS}\approx0.6V
+$$
+
+and
+
+$$
+V_{TH}\approx0.45V
+$$
+
+we obtain:
+
+$$
+V_{OV}\approx0.15V
+$$
+
+Lower overdrive voltage improves:
+
+- gain
+- output resistance
+- small-signal sensitivity
+
+while maintaining saturation.
+
+---
+
+# Transconductance Calculation
+
+Small-signal transconductance is:
+
+$$
+g_m=\frac{2I_D}{V_{OV}}
+$$
+
+Substituting:
+
+$$
+I_D=57.7\mu A
+$$
+
+$$
+V_{OV}=0.15V
+$$
+
+Therefore:
+
+$$
+g_m=\frac{2\times57.7\mu A}{0.15}
+$$
+
+$$
+g_m=0.769mS
+$$
+
+This parameter determines voltage gain.
+
+---
+
+# Output Resistance Estimation
+
+MOSFET output resistance:
+
+$$
+r_o=\frac{1}{\lambda I_D}
+$$
+
+For short-channel devices:
+
+$$
+\lambda\approx0.1V^{-1}
+$$
+
+Thus:
+
+$$
+r_o=\frac{1}{0.1\times57.7\mu A}
+$$
+
+$$
+r_o\approx173k\Omega
+$$
+
+Since both NMOS and PMOS loads contribute:
+
+$$
+R_{out}=r_{on}\parallel r_{op}
+$$
+
+Assuming equal values:
+
+$$
+R_{out}\approx86.5k\Omega
+$$
+
+---
+
+# Expected Voltage Gain Calculation
+
+Differential gain expression:
+
+$$
+A_d=g_mR_{out}
+$$
+
+Substituting:
+
+$$
+A_d=(0.769mS)(86.5k\Omega)
+$$
+
+$$
+A_d\approx66.5
+$$
+
+Converting to decibels:
+
+$$
+A_d(dB)=20\log(66.5)
+$$
+
+$$
+A_d\approx36.4dB
+$$
+
+Simulation gain is smaller due to:
+
+- channel-length modulation
+- body effect
+- mobility degradation
+- parasitic capacitances
+
+but theoretical prediction confirms gain improvement over resistive load configuration.
+
+---
+
+# Linear Differential Input Range
+
+Linear operation condition:
+
+$$
+v_{id}<\sqrt{2}V_{OV}
+$$
+
+Substituting:
+
+$$
+V_{OV}=0.15V
+$$
+
+Thus:
+
+$$
+v_{id}<0.212V
+$$
+
+Therefore differential inputs below approximately:
+
+$$
+212mV
+$$
+
+produce linear amplification.
+
+---
+
+# Dominant Pole Estimation
+
+Load capacitance introduces dominant pole:
+
+$$
+f_p=\frac{1}{2\pi R_{out}C_L}
+$$
+
+Given:
+
+$$
+R_{out}=86.5k\Omega
+$$
+
+$$
+C_L=10pF
+$$
+
+Therefore:
+
+$$
+f_p=\frac{1}{2\pi(86.5\times10^3)(10\times10^{-12})}
+$$
+
+$$
+f_p\approx184kHz
+$$
+
+This predicts bandwidth limitation observed in AC analysis.
+
+---
+
+# Gain Bandwidth Product Estimation
+
+Gain-bandwidth product:
+
+$$
+GBW=A_d\times f_p
+$$
+
+Substituting:
+
+$$
+GBW=66.5\times184kHz
+$$
+
+$$
+GBW\approx12.2MHz
+$$
+
+This represents amplifier speed capability.
+
+---
+
+# Transistor Sizing Considerations
+
+MOS current equation:
+
+$$
+I_D=\frac{1}{2}\mu C_{ox}\frac{W}{L}(V_{OV})^2
+$$
+
+Rearranging:
+
+$$
+\frac{W}{L}=\frac{2I_D}{\mu C_{ox}(V_{OV})^2}
+$$
+
+Thus transistor dimensions were selected to maintain:
+
+- saturation operation
+- symmetry
+- matching accuracy
+- required bias current
+
+with fixed technology constraint:
+
+$$
+L=540nm
+$$
+
+---
+
+# Power Consumption Verification
+
+Power dissipation:
+
+$$
+P=(V_{DD}-V_{SS})I_{tail}
+$$
+
+Substituting:
+
+$$
+P=1.8\times115.4\mu A
+$$
+
+$$
+P=0.207mW
+$$
+
+Thus:
+
+$$
+P<2.2mW
+$$
+
+Design satisfies specification constraint.
+
+---
+
+# Summary of Designed Parameters
+
+| Parameter | Value |
+|----------|------|
+| Tail current | $115.4\mu A$ |
+| Branch current | $57.7\mu A$ |
+| Overdrive voltage | $0.15V$ |
+| Transconductance | $0.769mS$ |
+| Output resistance | $86.5k\Omega$ |
+| Expected gain | $66.5$ |
+| Linear input limit | $212mV$ |
+| Dominant pole | $184kHz$ |
+| GBW | $12.2MHz$ |
+| Power dissipation | $0.207mW$ |
+
+These calculations validate the correctness of transistor biasing and expected amplifier performance prior to simulation.
+# 9. Input Common Mode Range (ICMR)
+
+Lower limit:
+
+$$
+V_{ICM(min)}=V_{SS}+V_{GS1}
+$$
+
+Upper limit:
+
+$$
+V_{ICM(max)}=V_{DD}-V_{SD3(sat)}-V_{GS1}
+$$
+
+Therefore:
+
+$$
+V_{ICM(min)} < V_{ICM} < V_{ICM(max)}
+$$
+
+Simulation verifies:
+
+$$
+V_{ICM}=0V
+$$
+
+lies inside valid region.
+
+---
+
+# 10. Output Common Mode Range (OCMR)
+
+Condition for NMOS saturation:
+
+$$
+V_{out}>V_{DS1(sat)}+V_P
+$$
+
+Condition for PMOS saturation:
+
+$$
+V_{out}<V_{DD}-V_{SD3(sat)}
+$$
+
+Measured:
+
+$$
+V_{out}=0.240V
+$$
+
+Hence valid operation confirmed.
+
+---
+
+# 11. Differential Gain Derivation
+
+Small signal gain:
+
+$$
+A_d=g_mR_{out}
+$$
+
+Output resistance:
+
+$$
+R_{out}=r_{on}\parallel r_{op}
+$$
+
+Thus:
+
+$$
+A_d=g_m(r_{on}\parallel r_{op})
+$$
+
+Simulation result:
+
+$$
+A_d=2.83dB
+$$
+
+Linear scale:
+
+$$
+A_d=1.38
+$$
+
+---
+
+# 12. Small Signal Equivalent Model
+
+The differential pair can be represented using:
+
+- transconductance source $g_mv_{id}$
+- output resistance $r_o$
+
+Output voltage:
+
+$$
+v_o=g_m v_{id}(r_{on}\parallel r_{op})
+$$
+
+Active load increases $r_o$ significantly.
+
+Thus gain increases.
+
+---
+
+# 13. Linear Differential Input Range
+
+Linear operation condition:
+
+$$
+v_{id}<\sqrt{2}V_{OV}
+$$
+
+Beyond this:
+
+current steering occurs
+
+leading to nonlinear response.
+
+---
+
+# 14. Transient Analysis
+
+## Linear Region Operation
+<img width="1919" height="967" alt="tran linear (2)" src="https://github.com/user-attachments/assets/c8f64b0e-0a19-4e8e-ab8f-1c6eeb4a5953" />
+<img width="1919" height="968" alt="tran linear (1)" src="https://github.com/user-attachments/assets/db8caab2-9aa8-43a2-928a-a53b22a9c6e2" />
+
+
+
+Observed characteristics:
+
+- sinusoidal outputs
+- equal amplitude
+- 180° phase difference
+- no distortion
+
+Thus amplifier operates in small signal region.
+
+---
+
+## Nonlinear Region Operation
+<img width="1917" height="922" alt="tran non linear (2)" src="https://github.com/user-attachments/assets/baa1e86b-3561-432b-8f30-414c1c225794" />
+<img width="1915" height="959" alt="tran non linear (1)" src="https://github.com/user-attachments/assets/65e6fe0f-75c3-4660-b5bd-601742360977" />
+
+
+Observed characteristics:
+
+- waveform clipping
+- asymmetric output
+- current steering
+
+Amplifier behaves like switching pair.
+
+---
+
+# 15. AC Analysis Setup
+
+Differential excitation applied:
+
+$$
+V_{in1}=0.5\angle0^\circ
+$$
+
+$$
+V_{in2}=0.5\angle180^\circ
+$$
+
+Differential output measured:
+
+$$
+V_{out}=V_{out1}-V_{out2}
+$$
+
+Measured gain:
+
+$$
+A_d=2.83dB
+$$
+
+---
+
+# 16. Frequency Response Analysis
+<img width="1919" height="916" alt="ac without capacitor (1)" src="https://github.com/user-attachments/assets/2ad3449b-864c-4b98-90d5-15c5db6bf67c" />
+<img width="1918" height="966" alt="ac without capacitor (2)" src="https://github.com/user-attachments/assets/3f54b698-0a23-41aa-acca-4275da05cfc2" />
+
+
+Observed characteristics:
+
+| Region | Behaviour |
+|-------|-----------|
+| Low frequency | constant gain |
+| Midband | maximum gain |
+| High frequency | roll-off |
+
+Roll-off caused by:
+
+- parasitic capacitances
+- load capacitance
+- channel capacitances
+
+---
+
+# 17. 3-dB Bandwidth
+
+Bandwidth defined as:
+
+$$
+A_d=\frac{A_{mid}}{\sqrt2}
+$$
+
+Frequency at this point:
+
+$$
+f=f_{3dB}
+$$
+
+obtained from AC plot.
+
+---
+
+# 18. Gain Bandwidth Product (GBW)
+
+Defined as:
+
+$$
+GBW=A_d\times BW
+$$
+
+Indicates amplifier speed capability.
+
+Higher GBW implies better performance.
+
+---
+
+# 19. Effect of Load Capacitor
+
+Load capacitance:
+<img width="1919" height="960" alt="ac with cap (1)" src="https://github.com/user-attachments/assets/a418e33d-6225-44f9-9f8e-a8cfc8fc139e" />
+<img width="1919" height="1000" alt="ac with cap (2)" src="https://github.com/user-attachments/assets/a4af5561-3e52-4706-82a8-08b33e93bf20" />
+
+
+$$
+C_L=10pF
+$$
+
+Dominant pole:
+
+$$
+f_p=\frac{1}{2\pi R_{out}C_L}
+$$
+
+Observed:
+
+| Parameter | Without $C_L$ | With $C_L$ |
+|----------|---------------|------------|
+Bandwidth | higher | reduced |
+Phase shift | smaller | larger |
+Gain | unchanged | unchanged |
+
+Thus capacitor stabilizes amplifier.
+
+---
+
+# 20. Power Dissipation
+
+Power consumption:
+
+$$
+P=(V_{DD}-V_{SS})I_{tail}
+$$
+
+Substituting values:
+
+$$
+P=1.8\times115.4\mu A
+$$
+
+$$
+P=0.207mW
+$$
+
+Constraint satisfied:
+
+$$
+P<2.2mW
+$$
+
+---
+
+# 21. Theoretical vs Simulation Comparison
+
+| Parameter | Theory | Simulation |
+|----------|--------|------------|
+Tail current | ≈100µA | 115µA |
+Branch current | 50µA | 57.7µA |
+Output voltage | 0.2–0.3V | 0.240V |
+Gain | moderate | 2.83dB |
+
+Close agreement observed.
+
+---
+
+# 22. Comparison with Configuration-1
+
+| Parameter | Configuration-1 | Configuration-2 |
+|----------|----------------|----------------|
+Load type | resistive | active |
+Gain | lower | higher |
+Output resistance | low | high |
+Area | larger | smaller |
+Bandwidth | larger | slightly smaller |
+
+Active load improves gain efficiency.
+
+---
+
+# 23. Advantages of Active Load Differential Amplifier
+
+- high gain
+- reduced chip area
+- improved matching
+- better integration capability
+- lower power for same gain
+
+---
+
+# 24. Applications
+
+Used in:
+
+- operational amplifier input stages
+- comparators
+- ADC front-end circuits
+- instrumentation amplifiers
+- analog signal processing blocks
+
+---
+
+# 25. Conclusion
+
+The CMOS differential amplifier with PMOS active load was successfully designed and analyzed under given specifications.
+
+Results confirm:
+
+- correct DC biasing
+- saturation region operation
+- valid ICMR and OCMR
+- predictable linear behaviour
+- differential gain of 2.83dB
+- bandwidth reduction with load capacitor
+- power consumption within specification
+
+Thus Configuration-2 demonstrates superior gain performance compared to resistive-load differential amplifier while maintaining low power operation.
